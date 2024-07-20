@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>To-Do lists</title>
+	</head>
+	<body>
+		<h1>Your To-Do list</h1>
+		<form method="POST" action="/lists/new">
+			<input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+			{% csrf_token %}
+			<p>Prioridade:</p>
+			<div>
+				<input type="radio" id="id_prioridade_baixa" name="prioridade" value="baixa" />
+				<label>Baixa</label>
+			</div>
+			<div>
+				<input type="radio" id="id_prioridade_media" name="prioridade" value="media" />
+				<label>Média</label>	
+			</div>
+			<div>
+				<input type="radio" id="id_prioridade_alta" name="prioridade" value="alta" />
+				<label>Alta</label>
+			</div>
+		</form>
+	</body>
+</html>
