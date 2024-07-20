@@ -172,9 +172,16 @@ class NewVisitorTest(LiveServerTestCase):
 		# acrescentar outro item. Ela insere "Comprar cola instantâne"
 		# e assinala prioridade baixa pois ela ainda tem cola suficiente
 		# por algum tempo
+		inputbox = self.browser.find_element(By.ID, 'id_new_item')
+		inputCheckPrioridadeBaixa = self.browser.find_element(By.ID, 'id_prioridade_baixa')
+		inputbox.send_keys('Comprar cola instantânea')
+		inputCheckPrioridadeBaixa.click()
+		inputbox.send_keys(Keys.ENTER)
 
 		# A página é atualizada novamente e agora mostra os dois
 		# itens em sua lista e as respectivas prioridades
+		self.wait_for_row_in_list_table('1: Comprar anzol - Prioridade Alta')
+		self.wait_for_row_in_list_table('2: Comprar cola instantânea - Prioridade Baixa')
 
 		# Edith se pergunta se o site lembrará de sua lista. Então
 		# ela nota que o site gerou um URL único para ela -- há um
