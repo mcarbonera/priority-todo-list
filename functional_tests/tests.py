@@ -15,7 +15,7 @@ class NewVisitorTest(LiveServerTestCase):
 	def tearDown(self):
 		self.browser.quit()
 
-	# Auxiliary method 
+	# Auxiliary method
 	def wait_for_row_in_list_table(self, row_text):
 		start_time = time.time()
 		while True:
@@ -58,16 +58,16 @@ class NewVisitorTest(LiveServerTestCase):
 
 
 	# 	# Quando ela tecla enter, a página é atualizada, e agora
-	# 	# a página lista "1 - Buy peacock feathers" como um item em 
+	# 	# a página lista "1 - Buy peacock feathers" como um item em
 	# 	# uma lista de tarefas
 
 	# 	inputbox.send_keys(Keys.ENTER)
 	# 	time.sleep(1)
 	# 	self.wait_for_row_in_list_table('1: Buy peacock feathers')
 
-	# 	# Ainda continua havendo uma caixa de texto convidando-a a 
-	# 	# acrescentar outro item. Ela insere "Use peacock feathers 
-	# 	# make a fly" (Usar penas de pavão para fazer um fly - 
+	# 	# Ainda continua havendo uma caixa de texto convidando-a a
+	# 	# acrescentar outro item. Ela insere "Use peacock feathers
+	# 	# make a fly" (Usar penas de pavão para fazer um fly -
 	# 	# Edith é bem metódica)
 	# 	inputbox = self.browser.find_element(By.ID,'id_new_item')
 	# 	inputbox.send_keys("Use peacock feathers to make a fly")
@@ -80,7 +80,7 @@ class NewVisitorTest(LiveServerTestCase):
 	# 	self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
 	# 	# Edith se pergunta se o site lembrará de sua lista. Então
-	# 	# ela nota que o site gerou um URL único para ela -- há um 
+	# 	# ela nota que o site gerou um URL único para ela -- há um
 	# 	# pequeno texto explicativo para isso.
 
 	# 	# Ela acessa essa URL -- sua lista de tarefas continua lá.
@@ -101,7 +101,7 @@ class NewVisitorTest(LiveServerTestCase):
 
 	# 	#Agora um novo usuário, Francis, chega ao site
 
-	# 	## Usamos uma nova versão do nagegador para garantir que nenhuma 
+	# 	## Usamos uma nova versão do nagegador para garantir que nenhuma
 	# 	## informação de Edith está vindo de cookies, etc
 		
 	# 	self.browser.quit()
@@ -147,7 +147,7 @@ class NewVisitorTest(LiveServerTestCase):
 		header_text = self.browser.find_element(By.TAG_NAME, 'h1').text
 		self.assertIn('Priority To-Do', header_text)
 
-		# Ela é convidada a inserir um item de tarefa e a prioridade da 
+		# Ela é convidada a inserir um item de tarefa e a prioridade da
 		# mesma imediatamente
 		inputbox = self.browser.find_element(By.ID, 'id_new_item')
 		self.assertEqual(
@@ -168,7 +168,7 @@ class NewVisitorTest(LiveServerTestCase):
 		time.sleep(1)
 		self.wait_for_row_in_list_table('1: Comprar anzol - Prioridade Alta')
 
-		# Ainda continua havendo uma caixa de texto convidando-a a 
+		# Ainda continua havendo uma caixa de texto convidando-a a
 		# acrescentar outro item. Ela insere "Comprar cola instantâne"
 		# e assinala prioridade baixa pois ela ainda tem cola suficiente
 		# por algum tempo
@@ -177,7 +177,7 @@ class NewVisitorTest(LiveServerTestCase):
 		# itens em sua lista e as respectivas prioridades
 
 		# Edith se pergunta se o site lembrará de sua lista. Então
-		# ela nota que o site gerou um URL único para ela -- há um 
+		# ela nota que o site gerou um URL único para ela -- há um
 		# pequeno texto explicativo para isso.
 		# Ela acessa essa URL -- sua lista de tarefas continua lá
 		edith_list_url = self.browser.current_url

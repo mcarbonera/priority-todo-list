@@ -8,22 +8,22 @@
 			<input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
 			<p>Prioridade:</p>
 			<div>
-				<input type="radio" id="id_prioridade_baixa" name="prioridade" value="baixa" checked="checked" />
+				<input type="radio" id="id_prioridade_baixa" name="item_priority" value="Baixa" checked="checked" />
 				<label>Baixa</label>
 			</div>
 			<div>
-				<input type="radio" id="id_prioridade_media" name="prioridade" value="media" />
+				<input type="radio" id="id_prioridade_media" name="item_priority" value="Média" />
 				<label>Média</label>	
 			</div>
 			<div>
-				<input type="radio" id="id_prioridade_alta" name="prioridade" value="alta" />
+				<input type="radio" id="id_prioridade_alta" name="item_priority" value="Alta" />
 				<label>Alta</label>
 			</div>
 			{% csrf_token %}
 		</form>
 		<table id="id_list_table">
 			{% for item in list.item_set.all %}
-			<tr><td>{{ forloop.counter }}: {{ item.text }}</td></tr>
+			<tr><td>{{ forloop.counter }}: {{ item.text }} - Prioridade {{item.priority}}</td></tr>
 			{% endfor %}
 		</table>
 	</body>
